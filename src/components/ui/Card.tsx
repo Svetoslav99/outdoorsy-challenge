@@ -5,12 +5,13 @@ import classes from './Card.module.css';
 type Props = {
     image: string;
     title: string;
+    className: string;
 };
 
-const Card: React.FC<Props> = ({ image, title }) => (
-    <article>
-        <img src={image} alt={`image for ${title}`} />
-        <h3>{title}</h3>
+const Card: React.FC<Props> = ({ image, title, className }) => (
+    <article className={className}>
+        <img className={classes.image} src={image} alt={`image for ${title}`} />
+        <h3 className={classes.title}>{title}</h3>
     </article>
 );
 
