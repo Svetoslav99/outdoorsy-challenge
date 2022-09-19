@@ -16,3 +16,9 @@
     width          : 50vw;
     min-width      : 250px;
 }
+
+@media only screen and (max-width: 600px) {
+    .list-items-container {
+        row-gap: 16px;
+    }
+}
