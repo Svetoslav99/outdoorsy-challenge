@@ -6,14 +6,21 @@ import { List } from '../../utils/types';
 type Props = {
     setList: React.Dispatch<React.SetStateAction<List[]>>;
     setError: React.Dispatch<React.SetStateAction<string>>;
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Search: React.FC<Props> = ({ setList, setError }) => {
+const Search: React.FC<Props> = ({ setList, setError, setIsLoading }) => {
     const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         const timer = setTimeout(async () => {
+            if (!inputValue) {
+                setList([]);
+                return;
+            }
+
             try {
+                setIsLoading(true);
                 const res = await fetch(`https://search.outdoorsy.com/rentals?filter[keywords]=${inputValue}`);
 
                 if (!res.ok) {
@@ -35,9 +42,11 @@ const Search: React.FC<Props> = ({ setList, setError }) => {
                 });
 
                 setList(formattedData);
+                setIsLoading(false);
             } catch (error) {
                 const message = error instanceof Error ? error.message : String(error);
                 setError(message);
+                setIsLoading(false);
             }
         }, 500);
 
