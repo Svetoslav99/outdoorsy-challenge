@@ -2,6 +2,8 @@
 
 Open the terminal and type "npm run dev"
 
+### Deployed to Vercel
+https://outdoorsy-challenge.vercel.app/
 ### If I had a whole week to work on this, I would have implemented:
 
 -   pagination;
