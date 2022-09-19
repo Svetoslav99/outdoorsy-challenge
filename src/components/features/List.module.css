@@ -1,3 +1,11 @@
 .error {
     color: hsl(0, 100%, 40%)
 }
+
+.article {
+    display        : flex;
+    flex-flow      : row;
+    justify-content: flex-start;
+    align-items    : center;
+    column-gap     : 24px;
+}
