@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 import classes from './Search.module.css';
+import { List } from '../../utils/types';
 
-const Search: React.FC = () => {
+type Props = {
+    setList: React.Dispatch<React.SetStateAction<List[]>>;
+    setError: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const Search: React.FC<Props> = ({ setList, setError }) => {
     const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
@@ -14,12 +20,24 @@ const Search: React.FC = () => {
                     throw new Error('Something went wrong!');
                 }
 
-                const data = await res.json();
+                const { data, included } = await res.json();
 
-                console.log('data: ', data);
+                const formattedData: List[] = [];
+
+                data.forEach((item: any) => {
+                    const rentalName: string = item.attributes.name;
+                    const rentalImgRelation = included.find(
+                        (rentalImg: any) => item.relationships.primary_image.data.id === rentalImg.id
+                    );
+                    const rentalImgUrl: string = rentalImgRelation?.attributes.url;
+
+                    formattedData.push({ image: rentalImgUrl, title: rentalName });
+                });
+
+                setList(formattedData);
             } catch (error) {
                 const message = error instanceof Error ? error.message : String(error);
-                console.log(message);
+                setError(message);
             }
         }, 500);
 
