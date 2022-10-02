@@ -1,0 +1,24 @@
+.container {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    width          : 100%;
+    height         : 5vh;
+    column-gap     : 16px;
+}
+
+.container>button {
+    background-color: white;
+    height          : 32px;
+    border-radius   : 8px;
+    border-color    : #bfbfbf;
+    cursor          : pointer;
+}
+
+.container>button:hover {
+    background-color: #bfbfbf;
+}
+
+.active {
+    background-color: #bfbfbf !important;
+}
