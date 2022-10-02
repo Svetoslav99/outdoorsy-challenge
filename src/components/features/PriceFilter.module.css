@@ -1,0 +1,27 @@
+.container {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    width          : 100%;
+    height         : 5vh;
+}
+
+.price_filter_input {
+    height       : 32px;
+    min-width    : 140px;
+    width        : 15vw;
+    border-radius: 8px;
+    border-color : #bfbfbf;
+    margin       : 0 16px
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        flex-flow: column;
+        height   : 20vh;
+    }
+
+    .price_filter_input {
+        margin: 8px;
+    }
+}
