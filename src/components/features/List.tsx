@@ -31,7 +31,6 @@ const List: React.FC<Props> = ({ list, error, isLoading, itemsCount }) => {
     }, [itemOffset]);
 
     const handlePageClick = (e: { selected: number }) => {
-        console.log('e: ', e);
         const newOffset = (e.selected * itemsPerPage) % list.length;
         setItemOffset(newOffset);
     };
