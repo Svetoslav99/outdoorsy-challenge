@@ -1,7 +1,9 @@
-.search-container {
+.filter-container {
     display        : flex;
+    flex-flow      : column;
     justify-content: center;
     align-items    : center;
+    row-gap        : 16px;
     width          : 100%;
     min-width      : 250px;
     height         : 20vh;
@@ -20,5 +22,9 @@
 @media only screen and (max-width: 600px) {
     .list-items-container {
         row-gap: 16px;
+    }
+
+    .filter-container {
+        height: 35vh;
     }
 }
