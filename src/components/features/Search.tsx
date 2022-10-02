@@ -131,6 +131,7 @@ const Search: React.FC<Props> = ({ setList, setError, setIsLoading, setItemsCoun
                 <datalist id='filter-types'>
                     <option value='trailer' />
                     <option value='fifth-wheel' />
+                    <option value='camper-van' />
                     <option value='a' label='Class A' />
                     <option value='b' label='Class B' />
                     <option value='c' label='Class C' />
